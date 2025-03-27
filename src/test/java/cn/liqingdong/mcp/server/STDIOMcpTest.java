@@ -67,8 +67,21 @@ public class STDIOMcpTest {
     }
 
     @Test
-    public void judgePrimeNumber() {
+    public void testJudgePrimeNumber() {
         McpSchema.CallToolResult weather = mcpClient.callTool(new McpSchema.CallToolRequest("judgePrimeNumber", Map.of("num", 39)));
+
+        List<McpSchema.Content> contentList = weather.content();
+        Assert.isTrue(contentList.size() == 1, "mcpClient.callTool 返回有误");
+        McpSchema.TextContent textContent = (McpSchema.TextContent) contentList.get(0);
+        String res = textContent.text();
+        Assert.hasText(res, "textContent 返回为空");
+        System.out.println(res);
+
+    }
+
+    @Test
+    public void testGetBalance() {
+        McpSchema.CallToolResult weather = mcpClient.callTool(new McpSchema.CallToolRequest("getBalance",Map.of()));
 
         List<McpSchema.Content> contentList = weather.content();
         Assert.isTrue(contentList.size() == 1, "mcpClient.callTool 返回有误");

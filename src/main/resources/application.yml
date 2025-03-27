@@ -12,3 +12,5 @@ logging:
   pattern:
     console:
 
+api-key:
+  deepseek: ${AI_DEEPSEEK_API_KEY}

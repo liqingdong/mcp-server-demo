@@ -1,5 +1,6 @@
 package cn.liqingdong.mcp.server;
 
+import cn.liqingdong.mcp.server.service.DeepSeekService;
 import cn.liqingdong.mcp.server.service.NumberService;
 import cn.liqingdong.mcp.server.service.WeatherService;
 import org.springframework.ai.tool.ToolCallbackProvider;
@@ -29,4 +30,12 @@ public class McpApplication {
                 .toolObjects(numberService)
                 .build();
     }
+
+    @Bean
+    public ToolCallbackProvider deepseekTools(DeepSeekService deepSeekService) {
+        return MethodToolCallbackProvider.builder()
+                .toolObjects(deepSeekService)
+                .build();
+    }
+
 }
