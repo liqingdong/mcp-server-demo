@@ -1,0 +1,14 @@
+server:
+  port: 8081
+  servlet:
+    encoding:
+      charset: GBK
+spring:
+  application:
+    name: mcp-server-demo
+  main:
+    banner-mode: off
+logging:
+  pattern:
+    console:
+
